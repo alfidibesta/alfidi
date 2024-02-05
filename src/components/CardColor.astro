@@ -1,0 +1,23 @@
+---
+const { color } = Astro.props;
+---
+
+<div class="card" style={{ backgroundColor: `var(--bg-${color})` }}>
+    <div class="px-5 py-5 ">
+        <slot />
+    </div>
+</div>
+
+<style>
+    .card{
+        margin: auto;
+        margin-top: 15px;
+		max-width: calc(100% - 2rem);
+		color: black;
+		font-size: 20px;
+        border-radius: 15px;
+        border: 2px solid;
+		line-height: 1.6;
+        box-shadow: 10px 10px black;
+    }
+</style>

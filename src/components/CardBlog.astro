@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+
+const { color, src, title, desc, link } = Astro.props;
+---
+
+<div class="card" style={{ backgroundColor: `var(--bg-${color})` }}>
+    <div class="px-5 py-5">
+        <p class="text-xl font-bold mb-2">{title}</p>
+        <slot />
+        <p class="text-base font-normal mb-3">
+            {desc}
+        </p>
+        <Button color="green" href={link}>
+            <p class="text-base font-normal">
+                See more  
+                <span class="float-right">&rarr;</span>
+            </p>
+        </Button>
+    </div>
+</div>
+
+<style>
+    .card{
+        margin: auto;
+        margin-top: 15px;
+		max-width: calc(100% - 2rem);
+		color: black;
+		font-size: 20px;
+        border-radius: 15px;
+        border: 2px solid;
+		line-height: 1.6;
+        box-shadow: 5px 5px black;
+    }
+</style>

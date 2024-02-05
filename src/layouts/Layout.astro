@@ -1,51 +1,64 @@
 ---
-interface Props {
-	title: string;
-}
+import Navigation from '../components/layout/Navigation.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
 
-const { title } = Astro.props;
+const { title ,description} = Astro.props;
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+    <Header title={title} description={description}/>
+    <body class="">
+		<div class="">
+			<Navigation />
+			<div class="">
+				<slot />
+			</div>
+			<Footer />
+		</div>
+    </body>
 </html>
+
+
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--bg-green : #00b159;
+		--bg-red : #d11141;
+		--bg-blue : #00aedb;
+		--bg-orange : #f37735;
+		--bg-yellow : #ffc425;
+		--bg-white : #eaeaee;
+	}
+	bg-green{
+		background-color: #00b159;
+	}
+	bg-red{
+		background-color: #d11141;
+	}
+	bg-blue{
+		background-color: #00aedb;
+	}
+	bg-orange{
+		background-color: #f37735;
+	}
+	bg-yellow{
+		background-color: #ffc425;
+	}
+	text-primary{
+		font-size: larger;
+		color: #000000;
+	}
+	text-secondary{
+		font-size: medium;
+		color: #000000;
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+		background: #ffffff;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	body{
+		width: 800px;
+		margin: auto;
 	}
 </style>

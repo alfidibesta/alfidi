@@ -1,0 +1,31 @@
+---
+const { color, href } = Astro.props;
+---
+
+<div class="button" style={{ backgroundColor: `var(--bg-${color})` }}>
+    <a href={href}>
+        <div class="px-3 py-3">
+            <slot />
+        </div>
+    </a>
+</div>
+
+<style>
+    .button {
+        color: black;
+        font-size: 20px;
+        border-radius: 15px;
+        border: 2px solid;
+        line-height: 1.6;
+        box-shadow: 5px 5px black;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .button:hover {
+        transform: scale(1);
+        color: #eaeaea;
+        box-shadow: 5px 5px #eaeaea;
+        background-color: black !important;
+    }
+</style>
