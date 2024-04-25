@@ -1,0 +1,29 @@
+{
+    "articles": [
+        {
+          "title": "Mulai ngoding..", 
+          "desc": "Interested in UI/UX Designer and Graphic Design.",
+          "link": "#"
+        },
+        { 
+          "title": "Malas ngoding..", 
+          "desc": "Interested in UI/UX Designer and Graphic Design.",
+          "link": "#"
+        },
+        { 
+          "title": "Malas ngoding..", 
+          "desc": "Interested in UI/UX Designer and Graphic Design.",
+          "link": "#"
+        },
+        { 
+          "title": "Malas ngoding..", 
+          "desc": "Interested in UI/UX Designer and Graphic Design.",
+          "link": "#"
+        },
+        { 
+          "title": "Malas ngoding..", 
+          "desc": "Interested in UI/UX Designer and Graphic Design.",
+          "link": "#"
+        }
+      ]
+}

@@ -1,0 +1,9 @@
+{
+    "socialMedia": [
+        { "color": "red", "text": "Instagram","link": "https://instagram.com/alfidibesta"},
+        { "color": "blue", "text": "Twitter", "link": "https://twitter.com/"},
+        { "color": "green", "text": "GitHub", "link": "https://github.com/alfidibesta"},
+        { "color": "white", "text": "Dribble", "link": "https://dribbble.com/Bestaalfidi"},
+        { "color": "orange", "text": "LinkedIn", "link": "https://www.linkedin.com/in/alfidibesta/"}
+    ]
+}

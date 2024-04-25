@@ -7,24 +7,10 @@ import CardColor from '../components/CardColor.astro';
 import imgUser from '../../public/stiker.png'
 import img1 from '../../public/img1.jpeg'
 import Button from '../components/Button.astro';
-
-const socialMediaButtons = [
-  { color: 'red', text: 'Instargram' },
-  { color: 'blue', text: 'twiter' },
-  { color: 'green', text: 'github' },
-  { color: 'white', text: 'dribble' },
-  { color: 'orange', text: 'linkedIn' },
-];
-
-const codingLanguages = [
-  { color: 'red', text: 'PHP' },
-  { color: 'blue', text: 'React JS' },
-  { color: 'orange', text: 'Javascript' },
-  { color: 'red', text: 'Laravel' },
-  { color: 'white', text: 'CSS' },
-  { color: 'green', text: 'Tailwinds' },
-  { color: 'blue', text: 'Astro' }
-];
+import socialMedia from '../data/socialmedia.json'
+import blog from '../data/blog.json'
+import personal from '../data/personal.json'
+import Articles from '../components/Articles.astro';
 
 ---
 
@@ -40,11 +26,11 @@ const codingLanguages = [
                 <CardColor color="blue">
                     <p class="text-4xl font-bold underline underline-offset-2 mb-2">@alfidibesta</p>
                     <p class="text-2xl font-semibold">
-                        jr. web programer
+                        {personal.aboutMe.position}
                     </p>
-                    <p class="font-normal text-normal">at Cranium</p>
-                    <p class="text-xl font-normal">Located in Indonesia 🇮🇩</p>
-                    <Button color="green" href="/blog">
+                    <p class="font-normal text-normal">at {personal.aboutMe.company}</p>
+                    <p class="text-xl font-normal mb-4">Located in {personal.aboutMe.location}</p>
+                    <Button color="green" href={personal.aboutMe.linkedin}>
                         <p class="text-base font-normal">
                             See more  
                             <span class="float-right">&rarr;</span>
@@ -54,24 +40,23 @@ const codingLanguages = [
             </div>
         </div>
 
-        <div class="flex flex-wrap my-3 h-full">
+        <div class="flex flex-wrap my-6 h-full">
             <div class="flex-none w-full md:w-3/5">
                 <CardColor color="yellow">
                     <p class="text-xl font-bold mb-3">Tentang Guweh 🗿</p>
                     <p class="text-base font-normal">
-                        I am Besta Alfidi, an Informatics Engineering student who has graduated at the State Polytechnic of Malang with GPA 3.53. Interested in UI/UX Designer and Graphic Design.
-                        During lectures I honed interest in UI/UX Designer and Graphic Design by attending forums and courses.
-                        I have high dedication in doing a task, diligent in learning and able to work under pressure this can be reflected during college in attending lectures and participation in organize. 
-                        In Organization I really favor teamwork, the power of critical thinking and adaptive. 
-                        With a travel background during college, I looked for opportunities to enter into the world UI/UX Designer to suit my background and interests.
+                        {personal.aboutMe.desc}
+                        {personal.aboutMe.interests.programming}
+                        {personal.aboutMe.interests.dedication}
+                        {personal.aboutMe.interests.teamwork}
                     </p>
                 </CardColor>
             </div>
             <div class="flex-none w-full md:w-2/5">
                 <CardColor color="yellow">
-                    <p class="text-xl font-bold mb-2">Lagi gabut belajar</p>
+                    <p class="text-xl font-bold mb-2">Lagi belajar</p>
                     <div class="flex gap-3 flex-wrap">
-                        {codingLanguages.map((button, index) => (
+                        {personal.codingLanguages.map((button, index) => (
                                 <Button color={button.color}>
                                     <p class="text-base font-normal">{button.text}</p>
                                 </Button>
@@ -81,41 +66,46 @@ const codingLanguages = [
             </div>
         </div>
 
-        <div class="flex my-3">
+        <Articles articles={blog}>
+            
+        </Articles>
+        <!-- <div class="flex my-3">
             <CardColor color="orange">
                 <p class="text-xl font-bold mb-3">Artikel yang baru baru 😁</p>
                 <div class="flex flex-nowrap gap-3">
-                    <div class="">
-                        <CardBlog color="white" 
-                        title={"Mulai ngoding.."} 
-                        desc={"Interested in UI/UX Designer and Graphic Design."} 
-                        link={"/blog"}>
-                            <div class="aspect-video">
-                                <Image class="bg-cover rounded-lg border-green-700 border-4" src={img1} alt="" />
-                            </div>
-                        </CardBlog>
-                    </div>
-                    <div class="">
-                        <CardBlog color="white"
-                        title={"Malas ngoding.."} 
-                        desc={"Interested in UI/UX Designer and Graphic Design."} 
-                        link={"/blog"}>
-                            <div class="aspect-video">
-                                <Image class="bg-cover rounded-lg border-green-700 border-4" src={img1} alt="" />
-                            </div>
-                        </CardBlog>
-                    </div>
+                    {blog.articles.slice(0, 2).map((blogs) => (
+                        <div class="">
+                            <CardBlog color="white" 
+                            title={blogs.title} 
+                            desc={blogs.desc}
+                            link={blogs.link}>
+                                <div class="aspect-video">
+                                    <Image class="bg-cover rounded-lg border-green-700 border-4" src={img1} alt="" />
+                                </div>
+                            </CardBlog>
+                        </div>
+                    ))}
                 </div>
+                {blog.articles.length > 2 && (
+                    <div class="mt-3">
+                        <Button color="blue" href="/blog">
+                            <p class="text-base font-normal">
+                                Next
+                                <span class="float-right">&rarr;</span>
+                            </p>
+                        </Button>
+                    </div>
+                )}
             </CardColor>
-        </div>
+        </div>         -->
 
-        <div class="flex flex-wrap my-3">
-            <CardColor color="blue">
+        <div class="flex flex-wrap my-3 w-full">
+            <CardColor color="blue" class:list={["w-full"]}>
                 <p class="text-xl font-bold mb-3">Follow ya...!</p>
                 <div class="flex gap-3 flex-wrap container">
-                    {socialMediaButtons.map((button, index) => (
+                    {socialMedia.socialMedia.map((button, index) => (
                         <div class={`sosmed ${index === 0 ? 'active' : ''}`}>
-                            <Button color={button.color}>
+                            <Button color={button.color} href={button.link}>
                                 <p class="text-base font-normal">{button.text}</p>
                             </Button>
                         </div>

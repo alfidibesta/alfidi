@@ -2,8 +2,8 @@
 const { color } = Astro.props;
 ---
 
-<div class="card" style={{ backgroundColor: `var(--bg-${color})` }}>
-    <div class="px-5 py-5 ">
+<div class="card w-full h-full" style={{ backgroundColor: `var(--bg-${color})` }}>
+    <div class="px-5 py-5">
         <slot />
     </div>
 </div>

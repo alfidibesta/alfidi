@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import CardBlog from "../components/CardBlog.astro";
+import img1 from '../../public/img1.jpeg';
+import CardColor from '../components/CardColor.astro';
+
+const { articles } = Astro.props;
+---
+
+<div class="flex my-3">
+    <CardColor color="orange">
+        <p class="text-xl font-bold mb-3">Artikel yang baru-baru ini 😁</p>
+        <div class="carousel">
+            {articles.articles.map((blog) => (
+                <div class="carousel-item">
+                    <div class="card-content">
+                        <CardBlog
+                            color="white"
+                            title={blog.title}
+                            desc={blog.desc}
+                            link={blog.link}>
+                            <div class="aspect-video">
+                                <Image
+                                    class="bg-cover rounded-lg border-green-700 border-4"
+                                    src={img1}
+                                    alt=""
+                                />
+                            </div>
+                        </CardBlog>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </CardColor>
+</div>
+
+<style>
+    .card {
+        margin: auto;
+        margin-top: 15px;
+        max-width: calc(100% - 2rem);
+        color: black;
+        font-size: 20px;
+        border-radius: 15px;
+        border: 2px solid;
+        line-height: 1.6;
+        box-shadow: 5px 5px black;
+    }
+
+    .carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .carousel-item {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: 50%; /* Sesuaikan lebar item carousel */
+    }
+</style>
+
+<script>
+    // Inisialisasi Slick Carousel
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.carousel');
+        new Glider(carousel, {
+            slidesToShow: 2,
+            dots: true,
+            draggable: true,
+            scrollLock: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }
+            ]
+        });
+    });
+</script>

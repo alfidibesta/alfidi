@@ -1,0 +1,24 @@
+{
+    "aboutMe": {
+        "position" : "jr. Web programmer",
+        "company" : "Cranium",
+        "location" : "Indonesia 🇮🇩",
+        "desc": "I am Besta Alfidi, an Informatics Engineering student who has graduated at the State Polytechnic of Malang with GPA 3.53. Interested in UI/UX Designer and Graphic Design.",
+        "interests": {
+            "programming": "During lectures I honed interest in UI/UX Designer and Graphic Design by attending forums and courses.",
+            "dedication": "I have high dedication in doing a task, diligent in learning and able to work under pressure.",
+            "teamwork": "In Organization I really favor teamwork, the power of critical thinking and adaptive."
+        },
+        "linkedin" : "https://www.linkedin.com/in/alfidibesta/"
+    },
+    "codingLanguages": [
+      { "color": "red", "text": "PHP" },
+      { "color": "blue", "text": "React JS" },
+      { "color": "orange", "text": "Javascript" },
+      { "color": "red", "text": "Laravel" },
+      { "color": "white", "text": "CSS" },
+      { "color": "green", "text": "Tailwinds" },
+      { "color": "blue", "text": "Astro" }
+    ]
+}
+  
