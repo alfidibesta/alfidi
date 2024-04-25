@@ -11,7 +11,7 @@ const { articles } = Astro.props;
     <CardColor color="orange">
         <p class="text-xl font-bold mb-3">Artikel yang baru-baru ini 😁</p>
         <div class="carousel">
-            {articles.articles.map((blog) => (
+            {articles.articles.map((blog: any) => (
                 <div class="carousel-item">
                     <div class="card-content">
                         <CardBlog
@@ -62,27 +62,27 @@ const { articles } = Astro.props;
 
 <script>
     // Inisialisasi Slick Carousel
-    document.addEventListener('DOMContentLoaded', function() {
-        const carousel = document.querySelector('.carousel');
-        new Glider(carousel, {
-            slidesToShow: 2,
-            dots: true,
-            draggable: true,
-            scrollLock: true,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2
-                    }
-                },
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                }
-            ]
-        });
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const carousel = document.querySelector('.carousel');
+    //     new Glider(carousel, {
+    //         slidesToShow: 2,
+    //         dots: true,
+    //         draggable: true,
+    //         scrollLock: true,
+    //         responsive: [
+    //             {
+    //                 breakpoint: 768,
+    //                 settings: {
+    //                     slidesToShow: 2
+    //                 }
+    //             },
+    //             {
+    //                 breakpoint: 1024,
+    //                 settings: {
+    //                     slidesToShow: 3
+    //                 }
+    //             }
+    //         ]
+    //     });
+    // });
 </script>
